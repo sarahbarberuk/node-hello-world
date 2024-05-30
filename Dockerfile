@@ -5,9 +5,9 @@ COPY package-lock.json /app/package-lock.json
 
 WORKDIR /app
 
-RUN npm ci
+COPY . .
 
-COPY . /app
+RUN npm install
 
-CMD ["npm", "run", "test"]
-CMD ["node", "./app/index.js"]
+CMD ["node", "index.js"]
+EXPOSE 3000
